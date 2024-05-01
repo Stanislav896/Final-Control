@@ -40,10 +40,9 @@ PrintArray: Этот метод принимает массив строк и в
 
 ## Пример использования кода:
 
-```
+
 string[] workArray = EnterStringsToArray();
 string[] result = CreatingArrayStringsLessThan3(workArray);
 string firstArray = PrintArray(workArray);
 string secondArray = PrintArray(result);
 Console.WriteLine(firstArray + " -> " + secondArray);
-```

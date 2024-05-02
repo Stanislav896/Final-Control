@@ -1,55 +1,67 @@
-﻿﻿int LinesLengthLessthree(string[] array)
+﻿﻿Commands();
+string[] array = new string[] {};
+
+string fromUser = ReadInput("Введите команду: ");
+switch (fromUser)
 {
-    int k = 0;
-    for (int i = 0; i < array.Length; i++)
-    {
-        if (array[i].Length <= 3)
-        {
-            k++;
-        }
-    }
-    return k;
+    case "1":
+        array = new string[] { "Hello", "2", "world", ":-)" };
+        break;
+    case "2":
+        array = new string[] { "1234", "1567", "-2", "computer science" };
+        break;
+    case "3":
+        array = new string[] { "Russia", "Denmark", "Kazan" };
+        break;
+    default:
+        Console.WriteLine($"{fromUser} - Такой команды нет");
+        break;
 }
 
-string[] CreateNewArray(string[] array)
+int lenNewArray = 0;
+for (int i = 0; i <= array.Length - 1; i++)
 {
-    int k = 0;
-    string[] newArray = new string[LinesLengthLessthree(array)];
-    for (int i = 0; i < array.Length; i++)
+    if (array[i].Length <= 3) lenNewArray++;
+}
+
+string[] newArray = new string[lenNewArray];
+int idx = 0;
+
+for (int i = 0; i <= array.Length - 1; i++)
+{
+    if (array[i].Length <= 3)
     {
-        if (array[i].Length <= 3)
-        {
-            newArray[k] = array[i];
-            k++;
-        }
+        newArray[idx] = array[i];
+        idx++;
     }
-    return newArray;
+}
+
+PrintArray(array);
+Console.Write("→ ");
+PrintArray(newArray);
+
+void Commands()
+{
+    Console.WriteLine();
+    Console.WriteLine("СПИСОК КОМАНД:");
+    Console.WriteLine("1 – использовать массив: [“Hello”, “2”, “world”, “:-)”]");
+    Console.WriteLine("2 – использовать массив: [“1234”, “1567”, “-2”, “computer science”]");
+    Console.WriteLine("3 – использовать массив: [“Russia”, “Denmark”, “Kazan”]");
+    Console.WriteLine();
+}
+
+string ReadInput(string msg)
+{
+    Console.Write(msg);
+    return Console.ReadLine();
 }
 
 void PrintArray(string[] array)
 {
-    Console.Write("[");
+    Console.Write("[ ");
     for (int i = 0; i < array.Length; i++)
     {
-        if (i < array.Length - 1)
-        {
-            Console.Write($"“{array[i]}”, ");
-        }
-        else
-        {
-            Console.Write($"“{array[i]}”");
-        }
+        Console.Write($"“{array[i]}”, ");
     }
-    Console.WriteLine("]");
+    Console.Write("] ");
 }
-
-string[] arr0 = { "Hello", "2", "world", ":-)" };
-string[] arr1 = { "1234", "1567", "-2", "computer science" };
-string[] arr2 = { "Russia", "Denmark", "Kazan" };
-
-string[] arrNew0 = CreateNewArray(arr0);
-PrintArray(arrNew0);
-string[] arrNew1 = CreateNewArray(arr1);
-PrintArray(arrNew1);
-string[] arrNew2 = CreateNewArray(arr2);
-PrintArray(arrNew2);

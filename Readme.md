@@ -23,6 +23,7 @@ string[] array = new string[] {};
 
 string fromUser = ReadInput("Введите команду: ");
 switch (fromUser)
+
 {
     case "1":
         array = new string[] { "Hello", "2", "world", ":-)" };
@@ -40,7 +41,9 @@ switch (fromUser)
 
 
 int lenNewArray = 0;
+
 for (int i = 0; i <= array.Length - 1; i++)
+
 {
     if (array[i].Length <= 3) lenNewArray++;
 }
@@ -49,8 +52,10 @@ string[] newArray = new string[lenNewArray];
 int idx = 0;
 
 for (int i = 0; i <= array.Length - 1; i++)
+
 {
     if (array[i].Length <= 3)
+
     {
         newArray[idx] = array[i];
         idx++;
@@ -61,7 +66,7 @@ PrintArray(array);
 Console.Write("→ ");
 PrintArray(newArray);
 
-// Функция: Вывод команд для работы с программой
+
 void Commands()
 {
     Console.WriteLine();
@@ -72,20 +77,23 @@ void Commands()
     Console.WriteLine();
 }
 
-// Функция ввода
+
 string ReadInput(string msg)
 {
     Console.Write(msg);
     return Console.ReadLine();
 }
 
-//  Функция вывода массива в терминал
+
 void PrintArray(string[] array)
+
 {
     Console.Write("[ ");
     for (int i = 0; i < array.Length; i++)
+
     {
         Console.Write($"“{array[i]}”, ");
     }
     Console.Write("] ");
+    
 }
